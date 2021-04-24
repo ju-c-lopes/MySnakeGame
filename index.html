@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="script/script.js"></script>
+    <!-- 'defer' faz o javascript ser carregado no final do carregamento da página -->
+    <title>The Furious Snake</title>
+</head>
+<body onload="pegarDados()"> 
+    <!-- TÍTULO -->
+    <img src="img/snake.png" alt="Furious Snake" style="filter: sepia();">
+
+    <div class="tela">
+
+        <!-- Div FIM DE JOGO -->
+        <div id="fim">
+            <!-- IMAGEM GAME OVER -->
+            <span id="end">
+                <img src="img/end.png" alt="Fim" style="width: 300px;">
+            </span>
+
+            <!-- IMAGEM COBRA MORTA -->
+            <img id="imgend" src="img/gameover.png" alt="Game Over" style="width: 100%; margin-top: 0px;z-index:4;" />
+
+            <!-- ENTRADA DE DADOS RECORDISTA -->
+            <div id="entraNome">
+                <p id="txtrec" style="text-align: center ;"></p>
+                <input id="fnome" type="text" style="margin-bottom: 10px;" />
+                <button id="nomeOk" style="background-color: gray;" onclick="okNome()">OK</button>
+            </div>
+
+            <!-- BOTÃO E POPUP REINICIAR -->
+            <span id="recomeco" onclick="reiniciar()" onmouseover="popUp('popR')">REINICIAR</span>
+            <span id="popR">Tecla "Enter" para recomeçar</span>
+        </div>
+
+
+        <!-- TELA DO JOGO -->
+        <canvas id="snake" width="512" height="512"></canvas>
+
+        <div style="width: 40px;"></div><!-- Div SEPARAÇÃO -->
+
+        <!-- TELA DE PONTOS E RECORDES -->
+        <div id="telaPt">
+            <div class="pontos">
+                <h3 class="pts">Pontos:</h3>
+                <div id="displayPts"></div>
+            </div>
+            <div class="rec" id="rec" onclick="enviarRec()">
+                <h3 id="hRec">RECORDES:</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIV ANIMAÇÕES PARA METAS 100, 500, 1000 pts -->
+    <div id="metas"></div>
+
+    <span id="bt" onclick="pausar()" onmouseover="popUp('popPause')"><img src="img/pause.png" style="width: 30px;"></span>
+    <span id="popPause">Tecla "Space" para pausar</span>
+</body>
+</html>

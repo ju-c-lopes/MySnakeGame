@@ -1,0 +1,257 @@
+@keyframes fade {
+    0% {opacity: 0; transform: scale(1); visibility: visible;}
+    50% {opacity: 0.5;}
+    100% {opacity: 0; transform: scale(2); visibility: hidden;}
+}
+
+@keyframes click {
+    0% {box-shadow: 2px 0 2px black, 0 2px 2px black, -2px 0 2px black, 0 -2px 2px black;}
+    50% {box-shadow: none;}
+    100% {box-shadow: 2px 0 2px black, 0 2px 2px black, -2px 0 2px black, 0 -2px 2px black;}
+}
+
+@keyframes sair {
+    0% {transform: scale(1); background-color: rgba(255, 255, 255, 0.541);}
+    100% {transform: scale(0); background-color: rgba(255, 255, 255, 0);}
+}
+
+@keyframes final {
+    0% {transform: scale(1);}
+    100% {transform: scale(1.2);}
+}
+
+@keyframes popup {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+@keyframes aparecer {
+    0% {opacity: 0; transform: scale(0.7);}
+    100% {opacity: 1; transform: scale(1);}
+}
+
+body{
+    background-color: rgb(37, 46, 37);
+    width: 90vh;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+canvas#snake{
+    display: flex;
+    position: relative;
+    float: none;
+    left: -200px;
+    z-index: 1;
+}
+
+div.tela {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+div#telaPt{
+    display:flex; 
+    position: relative;
+    flex-direction: column; 
+    align-items: center;
+    left: -200px;
+}
+
+h1#gamename{
+    font-size: 30pt;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(39, 71, 39);
+    text-shadow: 0px 5px 0px rgb(162, 250, 21);
+}
+
+span#bt{
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    background: gray;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 350px;
+    margin-left: 40%;
+    margin-right: 0%;
+    box-shadow: 2px 0 2px black, 0 2px 2px black, -2px 0 2px black, 0 -2px 2px black;
+}
+
+h3.pts{
+    width: 70%;
+    text-align: left;
+    color: grey;
+    font-size: 30pt;
+    font-weight: 900;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div.pontos{
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 20px;
+    width: 300px;
+    height: auto;
+    background-color: #383838;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.726);
+}
+
+div.displayPts{
+    display: flex;
+    justify-content: center;
+    width: 40%;
+}
+
+span#meusPontos{
+    color: grey;
+    font-size: 20pt;
+    font-weight: 900;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div#metas{
+    visibility: visible;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    position: relative;
+    float: none;
+    background-color: rgba(255, 255, 255, 0);
+    margin-right: auto;
+    padding: 20px;
+    top: -400px;
+    z-index: 2;
+}
+
+img#metaimg{
+    visibility: hidden;
+}
+
+div#rec{
+    background-color: rgba(255, 255, 255, 0.541);
+    margin-top: 50px;
+    width: 250px;
+    height: 60px;
+    border-radius: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 3px 3px 0 black, -3px 3px 0 black;
+}
+
+div#recOther {
+    background-color: rgba(255, 255, 255, 0);
+    margin-top: 50px;
+    width: 250px;
+    height: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h3#hRec{
+    margin-top: 12px;
+    color: red;
+    font-size: 25pt;
+    font-weight: 600;
+    text-align: center;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+div#fim{
+    left: 250px;
+    top: 50px;
+    width: 400px;
+    height: 400px;
+    background-color: none;
+    border-radius: 40px;
+    display: flex;
+    position: relative;
+    float: none;
+    flex-direction: column;
+    visibility: hidden;
+    z-index: 3;
+}
+
+span#recomeco{
+    width: 110px;
+    height: 30px;
+    top: 620px;
+    margin-left: 150px;
+    margin-top: -115px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-weight: 900;
+    border-radius: 10px;
+    background-color: gray;
+    box-shadow: 2px 0 2px black, 0 2px 2px black, -2px 0 2px black, 0 -2px 2px black;
+    z-index: 5;
+}
+
+span#popPause{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-color:black;
+    border-radius: 20px;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: gray;
+    left: 300px;
+    top: -220px;
+    width: 210px;
+    height: 30px;
+    visibility: hidden;
+}
+
+span#popR{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-color:black;
+    border-radius: 20px;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: gray;
+    left: 100px;
+    top: -60px;
+    width: 220px;
+    height: 30px;
+    padding: 5px;
+    visibility: hidden;
+    z-index: 5;
+}
+
+div#entraNome{
+    background-color: white;
+    border-radius: 10px;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    width: 200px;
+    height: 150px;
+    top: -200px;
+    left: 100px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    float: none;
+    visibility: hidden;
+    z-index: 10;
+}
+
+p#txtrec{
+    font-size: 10pt;
+}
